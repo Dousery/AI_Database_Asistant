@@ -41,28 +41,48 @@ Veritabanı tablomuz `customers` olarak adlandırılmıştır ve şu alanlara sa
    **Yanıt:** `delete_customer(10)`
 4. "İşi mühendis ve 30 yaşındaki müşteriyi getir."  
    **Yanıt:** `get_customer_by_attributes(age=30, job='mühendis')`
-
+5. Büyüktür kelimesi görünce '>' sembolünü , Küçüktür kelimesi görünce '<' sembolünü , büyük eşittir kelimesi görünce '>=' sembolünü ve küçük eşittir kelimesi görünce '<=' sembolünü kullan.
 Verilen cümleyi analiz et ve ORM metodunu **sadece** şu formatta döndür:
 `create_customer({...})`, `get_customer_by_attributes(...)`, `update_customer(..., {...})`, `delete_customer(...)`
 """
 
+
+def get_ai_response(query):
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {
+                "role": "system",
+                "content": system_prompt,
+            },
+            {
+                "role": "user",
+                "content": query,
+            },
+        ]
+    )
+    return response.choices[0].message.content
+
+
+
+
 # User query
-query = "Müşteri tablosuna yeni bir müşteri ekle, adı Ahmet, 35 yaşında, işi doktor."
+#query = "Müşteri tablosuna yeni bir müşteri ekle, adı Ahmet, 35 yaşında, işi doktor."
 
 # Create a chat completion using the client
-response = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[
-        {
-            "role": "system",  # This is the system message
-            "content": system_prompt,
-        },
-        {
-            "role": "user",  # The user's message
-            "content": query,
-        },
-    ]
-)
+#response = client.chat.completions.create(
+#    model="gpt-4o-mini",
+#    messages=[
+#        {
+#            "role": "system",  # This is the system message
+#            "content": system_prompt,
+#        },
+#        {
+#            "role": "user",  # The user's message
+#            "content": query,
+#        },
+#    ]
+#)
 
 # Print the response
-print(response.choices[0].message.content)
+#print(response.choices[0].message.content)

@@ -20,14 +20,20 @@ class CustomerBase(BaseModel):
     poutcome: str
     deposit: str
 
-    class Config:
-        orm_mode = True
-
 class CustomerCreate(CustomerBase):
+    pass
+
+class CustomerGet(CustomerBase):
     pass
 
 class CustomerUpdate(CustomerBase):
     pass
 
-class CustomerResponse(CustomerBase):
+class CustomerDelete(CustomerBase):
+    pass
+
+class Customer(CustomerBase):
     id: int
+
+    class Config:
+        orm_mode = True
