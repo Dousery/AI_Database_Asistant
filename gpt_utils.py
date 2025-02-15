@@ -13,7 +13,6 @@ system_prompt = """
 Sen bir dil işleme modelisin. Kullanıcının yazdığı sorguyu analiz edip, ORM metodunu ve parametrelerini döndürmelisin.
 
 Veritabanı tablomuz `customers` olarak adlandırılmıştır ve şu alanlara sahiptir:
-- id (Integer, Primary Key)
 - age (Integer)
 - job (String)
 - marital (String)

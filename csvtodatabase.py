@@ -26,9 +26,9 @@ def csv_to_database():
         for row in reader:
             cur.execute(
                 """
-                INSERT INTO customers (age, job, marital, education, is_default, balance, housing, loan, contact, 
+                INSERT INTO customers (id,age, job, marital, education, is_default, balance, housing, loan, contact, 
                 call_day, call_month, duration, campaign, pdays, previous, poutcome, deposit) VALUES 
-                (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) """, row 
+                (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) """, row 
                 )
     conn.commit()
     conn.close()

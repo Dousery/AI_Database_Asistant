@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 class CustomerBase(BaseModel):
+    id: Optional[int] = None
     age: Optional[int] = None
     job: Optional[str] = None
     marital: Optional[str] = None

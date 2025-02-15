@@ -1,0 +1,27 @@
+2025-02-15 20:14:42,395 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 20:14:42,458 - ERROR - Invalid ORM method format: `create_customer({'age': 15, 'job': 'doktor'})`
+2025-02-15 20:14:42,458 - ERROR - Query processing error: Invalid ORM method format: `create_customer({'age': 15, 'job': 'doktor'})`
+2025-02-15 20:16:55,959 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 20:16:56,235 - CRITICAL - Unexpected error: (psycopg2.errors.UndefinedColumn) column customers.id does not exist
+LINE 1: ...LL, NULL, NULL, NULL, NULL, NULL, NULL) RETURNING customers....
+                                                             ^
+
+[SQL: INSERT INTO customers (age, job, marital, education, is_default, balance, housing, loan, contact, call_day, call_month, duration, campaign, pdays, previous, poutcome, deposit) VALUES (%(age)s, %(job)s, %(marital)s, %(education)s, %(is_default)s, %(balance)s, %(housing)s, %(loan)s, %(contact)s, %(call_day)s, %(call_month)s, %(duration)s, %(campaign)s, %(pdays)s, %(previous)s, %(poutcome)s, %(deposit)s) RETURNING customers.id]
+[parameters: {'age': 15, 'job': 'doktor', 'marital': None, 'education': None, 'is_default': None, 'balance': None, 'housing': None, 'loan': None, 'contact': None, 'call_day': None, 'call_month': None, 'duration': None, 'campaign': None, 'pdays': None, 'previous': None, 'poutcome': None, 'deposit': None}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-02-15 20:33:33,514 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 20:33:33,672 - CRITICAL - Unexpected error: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "customers_pkey"
+DETAIL:  Key (id)=(1) already exists.
+
+[SQL: INSERT INTO customers (age, job, marital, education, is_default, balance, housing, loan, contact, call_day, call_month, duration, campaign, pdays, previous, poutcome, deposit) VALUES (%(age)s, %(job)s, %(marital)s, %(education)s, %(is_default)s, %(balance)s, %(housing)s, %(loan)s, %(contact)s, %(call_day)s, %(call_month)s, %(duration)s, %(campaign)s, %(pdays)s, %(previous)s, %(poutcome)s, %(deposit)s) RETURNING customers.id]
+[parameters: {'age': 15, 'job': 'doktor', 'marital': None, 'education': None, 'is_default': None, 'balance': None, 'housing': None, 'loan': None, 'contact': None, 'call_day': None, 'call_month': None, 'duration': None, 'campaign': None, 'pdays': None, 'previous': None, 'poutcome': None, 'deposit': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-02-15 20:52:18,677 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 20:52:18,848 - CRITICAL - Unexpected error: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "customers_pkey"
+DETAIL:  Key (id)=(1) already exists.
+
+[SQL: INSERT INTO customers (age, job, marital, education, is_default, balance, housing, loan, contact, call_day, call_month, duration, campaign, pdays, previous, poutcome, deposit) VALUES (%(age)s, %(job)s, %(marital)s, %(education)s, %(is_default)s, %(balance)s, %(housing)s, %(loan)s, %(contact)s, %(call_day)s, %(call_month)s, %(duration)s, %(campaign)s, %(pdays)s, %(previous)s, %(poutcome)s, %(deposit)s) RETURNING customers.id]
+[parameters: {'age': 15, 'job': 'doktor', 'marital': None, 'education': None, 'is_default': None, 'balance': None, 'housing': None, 'loan': None, 'contact': None, 'call_day': None, 'call_month': None, 'duration': None, 'campaign': None, 'pdays': None, 'previous': None, 'poutcome': None, 'deposit': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-02-15 21:00:11,354 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 21:00:11,559 - INFO - Successfully executed: create_customer({'age': 15, 'job': 'doktor'})
