@@ -1,8 +1,10 @@
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import NoResultFound
 import models
 import schemas
+from fastapi import HTTPException
 
-# Müşteri verisini alma
+# Get customer ınformation
 def get_customer_by_attributes(db: Session, customer: schemas.CustomerGet):
     query = db.query(models.Customer)
     parameters = customer.model_dump(exclude_unset=True)
@@ -12,7 +14,7 @@ def get_customer_by_attributes(db: Session, customer: schemas.CustomerGet):
     
     return query.all()
 
-# Müşteri oluşturma
+# Create new customer
 def create_customer(db: Session, customer: schemas.CustomerCreate):
     db_customer = models.Customer(**customer.model_dump(exclude_unset=True))
     db.add(db_customer)
@@ -20,60 +22,29 @@ def create_customer(db: Session, customer: schemas.CustomerCreate):
     db.refresh(db_customer)
     return db_customer
 
-# Tüm parametrelerin eşleşip eşleşmediğini kontrol eden yardımcı fonksiyon
-def check_all_parameters_match(customer_obj, parameters):
-    for key, value in parameters.items():
-        if getattr(customer_obj, key) != value:
-            return False
-    return True
 
-# Müşteri güncelleme (birden fazla müşteri)
-def update_customers(db: Session, old_values: schemas.CustomerFilter, new_values: schemas.CustomerUpdate):
-    query = db.query(models.Customer)
-    filter_params = old_values.model_dump(exclude_unset=True)
-    update_params = new_values.model_dump(exclude_unset=True)
-    
-    # İlk filtrelemeyi yap
-    for key, value in filter_params.items():
-        query = query.filter(getattr(models.Customer, key) == value)
-    
-    customers = query.all()
-    matched_customers = []
-    
-    if customers:
-        for customer in customers:
-            # Tüm parametrelerin eşleşip eşleşmediğini kontrol et
-            if check_all_parameters_match(customer, filter_params):
-                # Yeni değerleri güncelle
-                for key, value in update_params.items():
-                    setattr(customer, key, value)
-                matched_customers.append(customer)
+# Update existing customer
+def update_customer(db: Session, condition_dict: dict, update_dict: dict):
+    try:
+        # Get all customers that match the conditions
+        customers = db.query(models.Customer).filter_by(**condition_dict).all()
         
-        if matched_customers:
-            db.commit()
-            return matched_customers
-    return None
+        if not customers:
+            raise HTTPException(status_code=404, detail="No customers found matching the conditions.")
 
-# Müşteri silme (birden fazla müşteri)
-def delete_customers(db: Session, customer: schemas.CustomerFilter):
-    query = db.query(models.Customer)
-    parameters = customer.model_dump(exclude_unset=True)
-    
-    # İlk filtrelemeyi yap
-    for key, value in parameters.items():
-        query = query.filter(getattr(models.Customer, key) == value)
-    
-    customers = query.all()
-    matched_customers = []
-    
-    if customers:
+        # Update all customers that match the conditions
         for customer in customers:
-            # Tüm parametrelerin eşleşip eşleşmediğini kontrol et
-            if check_all_parameters_match(customer, parameters):
-                db.delete(customer)
-                matched_customers.append(customer)
-        
-        if matched_customers:
-            db.commit()
-            return {"message": f"{len(matched_customers)} customers deleted"}
-    return None
+            for key, value in update_dict.items():
+                setattr(customer, key, value) 
+
+        # Commit the changes
+        db.commit()
+
+        # Get the updated customer records
+        updated_customers = db.query(models.Customer).filter_by(**condition_dict).all()
+
+        return updated_customers
+
+    except Exception as e:
+        db.rollback()  # Rollback the transaction if an error occurs
+        raise HTTPException(status_code=500, detail=f"An error occurred at update process: {str(e)}")

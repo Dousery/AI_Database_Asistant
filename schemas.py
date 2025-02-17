@@ -30,6 +30,9 @@ class CustomerUpdate(CustomerBase):
 class CustomerFilter(CustomerBase):
     id: Optional[int] = None
 
+class CustomerDelete(CustomerBase):
+    pass
+
 class CustomerGet(CustomerBase):
     pass
 

@@ -25,3 +25,39 @@ DETAIL:  Key (id)=(1) already exists.
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
 2025-02-15 21:00:11,354 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-15 21:00:11,559 - INFO - Successfully executed: create_customer({'age': 15, 'job': 'doktor'})
+2025-02-17 13:39:36,018 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:39:36,050 - ERROR - Error processing ORM method 'get_customer_by_attributes(job='admin')': invalid syntax (<unknown>, line 1)
+2025-02-17 13:39:36,050 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes(job='admin')': invalid syntax (<unknown>, line 1)
+2025-02-17 13:43:24,372 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:43:24,601 - INFO - Successfully executed: get_customer_by_attributes({'job': 'admin'})
+2025-02-17 13:47:09,652 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:47:09,797 - INFO - Successfully executed: get_customer_by_attributes({'job': 'management'})
+2025-02-17 13:47:45,490 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:47:45,493 - CRITICAL - Unexpected error: module 'schemas' has no attribute 'CustomerFilter'
+2025-02-17 13:48:07,400 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:48:07,407 - INFO - Successfully executed: get_customer_by_attributes({'id': 45})
+2025-02-17 13:48:31,162 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:48:31,193 - CRITICAL - Unexpected error: module 'schemas' has no attribute 'CustomerFilter'
+2025-02-17 13:49:56,773 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:49:57,252 - INFO - Successfully executed: get_customer_by_attributes({'id': 45})
+2025-02-17 13:50:08,449 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:50:08,471 - CRITICAL - Unexpected error: update_customers() takes 2 positional arguments but 3 were given
+2025-02-17 13:53:05,620 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:53:05,636 - ERROR - Error processing ORM method 'update_customer(45, {'age': 40})': Parameters should be a dictionary.
+2025-02-17 13:53:05,636 - ERROR - Query processing error: Error processing ORM method 'update_customer(45, {'age': 40})': Parameters should be a dictionary.
+2025-02-17 13:56:25,491 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:56:25,643 - CRITICAL - Unexpected error: No matching customers found
+2025-02-17 13:57:42,702 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:57:42,709 - INFO - Successfully executed: get_customer_by_attributes({'id': 45})
+2025-02-17 13:57:59,086 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 13:57:59,095 - CRITICAL - Unexpected error: No matching customers found
+2025-02-17 14:01:02,586 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 14:01:02,756 - CRITICAL - Unexpected error: No matching customers found
+2025-02-17 14:02:07,107 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 14:02:07,118 - CRITICAL - Unexpected error: No matching customers found
+2025-02-17 14:40:38,302 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 14:40:38,651 - INFO - Successfully executed: update_customer({'id': 45}, {'age': 30})
+2025-02-17 14:50:57,614 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 14:50:57,746 - ERROR - Query processing error: An error occurred at update process: 404: No customers found matching the conditions.
+2025-02-17 14:52:44,625 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 14:52:44,877 - INFO - Successfully executed: update_customer({'job': 'retired'}, {'age': 70})

@@ -13,6 +13,7 @@ system_prompt = """
 Sen bir dil işleme modelisin. Kullanıcının yazdığı sorguyu analiz edip, ORM metodunu ve parametrelerini döndürmelisin.
 
 Veritabanı tablomuz `customers` olarak adlandırılmıştır ve şu alanlara sahiptir:
+- id (Integer)
 - age (Integer)
 - job (String)
 - marital (String)
@@ -33,16 +34,20 @@ Veritabanı tablomuz `customers` olarak adlandırılmıştır ve şu alanlara sa
 
 Örnek işlemler:
 1. "Ali adlı yeni müşteri ekle, 30 yaşında, işi mühendis."  
-   **Yanıt:** `create_customer({'age': 30, 'job': 'mühendis'})`
+   **Yanıt:** `create_customer({'age': 30, 'job': 'engineer'})`
 2. "ID'si 5 olan müşterinin işi değişti, yeni iş: öğretmen."  
-   **Yanıt:** `update_customer(5, {'job': 'öğretmen'})`
+   **Yanıt:** `update_customer({'id' = 5, 'job': 'teacher'})`
 3. "ID'si 10 olan müşteriyi sil."  
    **Yanıt:** `delete_customer(10)`
 4. "İşi mühendis ve 30 yaşındaki müşteriyi getir."  
-   **Yanıt:** `get_customer_by_attributes(age=30, job='mühendis')`
-5. Büyüktür kelimesi görünce '>' sembolünü , Küçüktür kelimesi görünce '<' sembolünü , büyük eşittir kelimesi görünce '>=' sembolünü ve küçük eşittir kelimesi görünce '<=' sembolünü kullan.
+   **Yanıt:** `get_customer_by_attributes({age=30, job='engineer'})`
+5. "Yaşı 30'dan küçük ve 'evli' olan tüm müşterilerin işini değiştir."  
+   **Yanıt:** `update_customer({'age': '<30', 'marital': 'married'}, {'job': 'new job'})`
+6. "15 yaşındaki müşterinin işini doktor olarak güncelle."  
+   **Yanıt:** `update_customer({'age': 15}, {'job': 'doctor'})`
+7. Büyüktür kelimesi görünce '>' sembolünü , Küçüktür kelimesi görünce '<' sembolünü , büyük eşittir kelimesi görünce '>=' sembolünü ve küçük eşittir kelimesi görünce '<=' sembolünü kullan.
 Verilen cümleyi analiz et ve ORM metodunu **sadece** şu formatta döndür:
-`create_customer({...})`, `get_customer_by_attributes(...)`, `update_customer(..., {...})`, `delete_customer(...)`
+`create_customer({...})`, `get_customer_by_attributes({...})`, `update_customer(..., {...})`, `delete_customer(...)`
 """
 
 
@@ -61,27 +66,3 @@ def get_ai_response(query):
         ]
     )
     return response.choices[0].message.content
-
-
-
-
-# User query
-#query = "Müşteri tablosuna yeni bir müşteri ekle, adı Ahmet, 35 yaşında, işi doktor."
-
-# Create a chat completion using the client
-#response = client.chat.completions.create(
-#    model="gpt-4o-mini",
-#    messages=[
-#        {
-#            "role": "system",  # This is the system message
-#            "content": system_prompt,
-#        },
-#        {
-#            "role": "user",  # The user's message
-#            "content": query,
-#        },
-#    ]
-#)
-
-# Print the response
-#print(response.choices[0].message.content)

@@ -8,7 +8,7 @@ from database_connection import get_db
 from gpt_utils import get_ai_response
 import re
 
-# 📌 Logging yapılandırması
+# Logging configuration
 logging.basicConfig(
     filename="app.log",
     level=logging.INFO,  # INFO, WARNING, ERROR
@@ -26,7 +26,7 @@ def process_orm_method(orm_method: str, db: Session):
     """
     GPT'den gelen ORM metodunu işler ve uygun CRUD işlemini gerçekleştirir.
     """
-     # Baştaki ve sondaki backtick ve tırnakları temizle
+     # Remove quotes and backticks
     orm_method = orm_method.strip().strip("`").strip("'").strip('"')
 
     match = re.match(r'(\w+)\((.*)\)', orm_method.strip())
@@ -39,7 +39,7 @@ def process_orm_method(orm_method: str, db: Session):
     method_name, params_str = match.groups()
 
     try:
-        # Parametreleri güvenli şekilde dönüştür
+        # Convert the parameters string to a dictionary
         if params_str:
             params = ast.literal_eval(params_str)
         else:
@@ -58,25 +58,17 @@ def process_orm_method(orm_method: str, db: Session):
             result = crud.get_customer_by_attributes(db, customer)
 
         elif method_name == "update_customer":
-            if not isinstance(params, tuple) or len(params) != 2:
-                raise ValueError("update_customer should have two parameters: (id, update_dict).")
-            
-            customer_id, update_dict = params
-            if not isinstance(customer_id, int) or not isinstance(update_dict, dict):
-                raise ValueError("Invalid parameters for update_customer.")
-
-            old_values = schemas.CustomerFilter(id=customer_id)
-            new_values = schemas.CustomerUpdate(**update_dict)
-            result = crud.update_customers(db, old_values, new_values)
+            if len(params) != 2:
+                raise ValueError("Update requires two dictionaries: condition and update fields.")
+            condition_dict = params[0]  # Condition dictionary
+            update_dict = params[1]     # Update dictionary
+            result = crud.update_customer(db, condition_dict, update_dict)
 
         elif method_name == "delete_customer":
-            if isinstance(params, dict):
-                customer = schemas.CustomerFilter(**params)
-            elif isinstance(params, int):
-                customer = schemas.CustomerFilter(id=params)
-            else:
-                raise ValueError("Invalid parameter type for delete_customer.")
             
+            if not isinstance(params, dict):
+                raise ValueError("Parameters should be a dictionary.")
+            customer = schemas.CustomerUpdate(**params)
             result = crud.delete_customers(db, customer)
 
         else:
@@ -126,7 +118,7 @@ async def process_query(query: str, db: Session = Depends(get_db)):
     
     except Exception as e:
         error_message = f"Unexpected error: {str(e)}"
-        logging.critical(error_message)  # Ciddi hatalar için CRITICAL seviyesi
+        logging.critical(error_message)  # Critical level for unexpected errors
         return JSONResponse(
             status_code=500,
             content={

@@ -4,20 +4,20 @@ from sqlalchemy.orm import sessionmaker
 import os
 from dotenv import load_dotenv
 
-# .env dosyasını yükle
+# Load environment variables
 load_dotenv()
 
-# Veritabanı bağlantı URL'si
+# Url for the database
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-# SQLAlchemy motorunu oluştur
+# Create the database engine
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# ORM modelleri için temel sınıf
+# Base class for the ORM models
 Base = declarative_base()
 
-# Veritabanı bağlantısı sağlayan fonksiyon
+# Dependency to get the database session
 def get_db():
     db = SessionLocal()
     try:
