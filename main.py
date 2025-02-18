@@ -111,11 +111,14 @@ def process_orm_method(orm_method: str, db: Session):
 
 
         elif method_name == "delete_customer":
-            
             if not isinstance(params, dict):
                 raise ValueError("Parameters should be a dictionary.")
-            customer = schemas.CustomerUpdate(**params)
-            result = crud.delete_customers(db, customer)
+    
+            # Operatörlü parametreleri işle
+            updated_params, operators = process_operator_params(params)
+
+            customer = schemas.CustomerGet(**updated_params)
+            result = crud.delete_customer(db, customer, operators)
 
         else:
             error_message = f"Unknown ORM method: {method_name}"

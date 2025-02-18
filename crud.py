@@ -64,6 +64,63 @@ def create_customer(db: Session, customer: schemas.CustomerCreate):
     db.refresh(db_customer)
     return db_customer
 
+def delete_customer(db: Session, customer: schemas.CustomerDelete, operators: dict = None):
+    query = db.query(models.Customer)
+    parameters = customer.model_dump(exclude_unset=True)
+
+    if operators is None:
+        operators = {}
+
+    for key, value in parameters.items():
+        print(f"Processing column: {key}, value: {value}")
+        column_attr = getattr(models.Customer, key)
+
+        if key in operators:
+            operator = operators[key]  # Operatör parametreden alınıyor
+            print(f"Found operator for {key}: {operator}")  # Aşama 2: Operatör bulunduysa yazdırıyoruz
+            
+            if operator == '>':
+                query = query.filter(column_attr > value)
+                print(f"Added filter: {key} > {value}")
+            elif operator == '<':
+                query = query.filter(column_attr < value)
+                print(f"Added filter: {key} < {value}")
+            elif operator == '>=':
+                query = query.filter(column_attr >= value)
+                print(f"Added filter: {key} >= {value}")
+            elif operator == '<=':
+                query = query.filter(column_attr <= value)
+                print(f"Added filter: {key} <= {value}")
+            elif operator == '!=':
+                query = query.filter(column_attr != value)
+                print(f"Added filter: {key} != {value}")
+        else:
+            # Eğer operatör belirtilmemişse basit eşitlik kontrolü yapılır
+            query = query.filter(column_attr == value)
+            print(f"Added filter: {key} == {value}")  # Aşama 3: Operatörsüz eşitlik kontrolü
+
+    try:
+            customers_to_delete = query.all()
+    except Exception as e:
+            db.rollback()
+            print(f"Error fetching customers to delete: {e}")
+            return []
+
+    if customers_to_delete:
+        try:
+            for customer in customers_to_delete:
+                db.delete(customer)
+            db.commit()
+            print(f"Deleted {len(customers_to_delete)} customers.")
+        except Exception as e:
+            db.rollback()
+            print(f"Error during deletion process: {e}")
+            return []
+    else:
+        print("No customers found for deletion.")
+
+    return customers_to_delete
+
 
 def update_customer(db: Session, condition_dict: dict, operators: dict, update_dict: dict):
     query = db.query(models.Customer)

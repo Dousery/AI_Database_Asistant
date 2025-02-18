@@ -210,3 +210,13 @@ age
 2025-02-18 13:23:26,650 - INFO - Successfully executed: update_customer({'age': '>50'}, {'job': 'retired'})
 2025-02-18 13:24:28,532 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-18 13:24:28,593 - INFO - Successfully executed: update_customer({'age': '>50', 'marital': 'divorced'}, {'housing': 'no'})
+2025-02-18 14:18:39,352 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 14:18:39,363 - CRITICAL - Unexpected error: module 'crud' has no attribute 'delete_customers'
+2025-02-18 14:20:06,242 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 14:20:06,244 - CRITICAL - Unexpected error: module 'crud' has no attribute 'delete_customers'
+2025-02-18 14:21:54,521 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 14:21:55,078 - INFO - Successfully executed: delete_customer({'age': 43})
+2025-02-18 14:23:08,257 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 14:23:08,289 - INFO - Successfully executed: delete_customer({'job': 'doctor'})
+2025-02-18 14:23:48,192 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 14:23:48,203 - INFO - Successfully executed: delete_customer({'job': 'doctor'})
