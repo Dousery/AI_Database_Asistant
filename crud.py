@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import NoResultFound
+from sqlalchemy.exc import SQLAlchemyError
 import models
 import re
 import schemas
@@ -15,7 +16,7 @@ def parse_condition(value):
 
 import re
 
-def get_customer_by_attributes(db: Session, customer: schemas.CustomerGet, operators: dict = None):
+def get_customer(db: Session, customer: schemas.CustomerGet, operators: dict = None):
     query = db.query(models.Customer)
     parameters = customer.model_dump(exclude_unset=True)
     
@@ -64,45 +65,47 @@ def create_customer(db: Session, customer: schemas.CustomerCreate):
     return db_customer
 
 
-def update_customer(db: Session, condition_dict: dict, update_dict: dict):
-    try:
-        # Get all customers that match the conditions
-        customers = db.query(models.Customer).filter_by(**condition_dict).all()
+def update_customer(db: Session, condition_dict: dict, operators: dict, update_dict: dict):
+    query = db.query(models.Customer)
+    
+    if operators is None:
+        operators = {}
+    
+    # Koşulları sorguya ekleme
+    for key, value in condition_dict.items():
+        column_attr = getattr(models.Customer, key)
+        operator = operators.get(key, '==')
         
-        if not customers:
-            raise HTTPException(status_code=404, detail="No customers found matching the conditions.")
-
-        # Update all customers that match the conditions
-        for customer in customers:
+        if operator == '>':
+            query = query.filter(column_attr > value)
+        elif operator == '<':
+            query = query.filter(column_attr < value)
+        elif operator == '>=':
+            query = query.filter(column_attr >= value)
+        elif operator == '<=':
+            query = query.filter(column_attr <= value)
+        elif operator == '!=':
+            query = query.filter(column_attr != value)
+        else:
+            query = query.filter(column_attr == value)
+    
+    customers_to_update = query.all()
+    
+    if not customers_to_update:
+        print("No customers found matching the given conditions.")
+        return []
+    
+    try:
+        # Güncelleme işlemi
+        for customer in customers_to_update:
             for key, value in update_dict.items():
-                # Eğer operatörlü bir değer ise
-                if isinstance(value, tuple) and len(value) == 2:
-                    operator, number = value
-                    column_attr = getattr(customer, key)
-                    
-                    if operator == '>':
-                        if getattr(customer, key) <= number:
-                            setattr(customer, key, number)
-                    elif operator == '<':
-                        if getattr(customer, key) >= number:
-                            setattr(customer, key, number)
-                    elif operator == '>=':
-                        if getattr(customer, key) < number:
-                            setattr(customer, key, number)
-                    elif operator == '<=':
-                        if getattr(customer, key) > number:
-                            setattr(customer, key, number)
-                else:
+                if hasattr(customer, key):
                     setattr(customer, key, value)
-
-        # Commit the changes
+        
         db.commit()
-
-        # Get the updated customer records
-        updated_customers = db.query(models.Customer).filter_by(**condition_dict).all()
-
-        return updated_customers
-
-    except Exception as e:
-        db.rollback()  # Rollback the transaction if an error occurs
-        raise HTTPException(status_code=500, detail=f"An error occurred at update process: {str(e)}")
+    except SQLAlchemyError as e:
+        db.rollback()
+        print(f"Error updating customers: {e}")
+        return None
+    
+    return query.all()

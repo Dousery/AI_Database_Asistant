@@ -87,25 +87,28 @@ def process_orm_method(orm_method: str, db: Session):
             updated_params, operators = process_operator_params(params)
 
             customer = schemas.CustomerGet(**updated_params)
-            result = crud.get_customer_by_attributes(db, customer, operators)
+            result = crud.get_customer(db, customer, operators)
 
         elif method_name == "update_customer":
             if len(params) != 2:
                 raise ValueError("Update requires two dictionaries: condition and update fields.")
+    
             condition_dict = params[0]  # Condition dictionary
             update_dict = params[1]     # Update dictionary
-            
-            updated_condition = {}
-            for key, value in condition_dict.items():
-                if isinstance(value, str) and re.match(r'(>|<|>=|<=)\d+', value):
-                    operator, number = re.match(r'(>|<|>=|<=)(\d+)', value).groups()
-                    updated_condition[key] = (operator, int(number))  
-                else:
-                    updated_condition[key] = value
 
-            updated_update = {key: value for key, value in update_dict.items()}
+            print(f"Condition Dictionary: {condition_dict}")
+            print(f"Update Dictionary: {update_dict}")
 
-            result = crud.update_customer(db, updated_condition, updated_update)
+            # Operatörlü parametreleri işle
+            updated_params, operators = process_operator_params(condition_dict)
+
+            print(f"Updated Params: {updated_params}")
+            print(f"Operators: {operators}")
+
+            result = crud.update_customer(db, updated_params, operators, update_dict)
+
+            print(f"Update Result: {result}")
+
 
         elif method_name == "delete_customer":
             

@@ -189,3 +189,24 @@ age
 2025-02-18 11:20:33,912 - INFO - Successfully executed: get_customer_by_attributes({'age': '>30', 'job': 'retired'})
 2025-02-18 11:21:00,059 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-18 11:21:00,100 - INFO - Successfully executed: get_customer_by_attributes({'age': '>30', 'job': 'management'})
+2025-02-18 13:06:38,759 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 13:06:38,776 - CRITICAL - Unexpected error: module 'crud' has no attribute 'get_customer_by_attributes'
+2025-02-18 13:08:05,098 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 13:08:05,255 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>40'})': Geçersiz operatör: None. Desteklenenler: {'<=', '>=', '!=', '>', '<', '=='}
+2025-02-18 13:08:05,255 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>40'})': Geçersiz operatör: None. Desteklenenler: {'<=', '>=', '!=', '>', '<', '=='}
+2025-02-18 13:09:17,385 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 13:09:17,549 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-18 13:10:51,176 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 13:10:51,347 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-18 13:12:00,698 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 13:12:00,700 - CRITICAL - Unexpected error: 'tuple' object has no attribute 'items'
+2025-02-18 13:16:23,105 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 13:16:23,235 - CRITICAL - Unexpected error: 'tuple' object has no attribute 'items'
+2025-02-18 13:18:12,308 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 13:18:12,578 - INFO - Successfully executed: update_customer({'age': '>=50'}, {'job': 'retired'})
+2025-02-18 13:21:46,958 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 13:21:47,196 - INFO - Successfully executed: update_customer({'age': '>50'}, {'job': 'retired'})
+2025-02-18 13:23:26,479 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 13:23:26,650 - INFO - Successfully executed: update_customer({'age': '>50'}, {'job': 'retired'})
+2025-02-18 13:24:28,532 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 13:24:28,593 - INFO - Successfully executed: update_customer({'age': '>50', 'marital': 'divorced'}, {'housing': 'no'})

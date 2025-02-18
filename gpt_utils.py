@@ -36,7 +36,7 @@ Veritabanı tablomuz `customers` olarak adlandırılmıştır ve şu alanlara sa
 1. "Ali adlı yeni müşteri ekle, 30 yaşında, işi mühendis."  
    **Yanıt:** `create_customer({'age': 30, 'job': 'engineer'})`
 2. "ID'si 5 olan müşterinin işi değişti, yeni iş: öğretmen."  
-   **Yanıt:** `update_customer({'id' = 5, 'job': 'teacher'})`
+   **Yanıt:** `update_customer({'id' = 5}, {'job': 'teacher'})`
 3. "ID'si 10 olan müşteriyi sil."  
    **Yanıt:** `delete_customer(10)`
 4. "İşi mühendis ve 30 yaşındaki müşteriyi getir."  
