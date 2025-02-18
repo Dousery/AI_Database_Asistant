@@ -83,7 +83,6 @@ def process_orm_method(orm_method: str, db: Session):
             if not isinstance(params, dict):
                 raise ValueError("Parameters should be a dictionary.")
     
-            # Operatörlü parametreleri işle
             updated_params, operators = process_operator_params(params)
 
             customer = schemas.CustomerGet(**updated_params)
@@ -99,7 +98,7 @@ def process_orm_method(orm_method: str, db: Session):
             print(f"Condition Dictionary: {condition_dict}")
             print(f"Update Dictionary: {update_dict}")
 
-            # Operatörlü parametreleri işle
+            # Process operator parameters
             updated_params, operators = process_operator_params(condition_dict)
 
             print(f"Updated Params: {updated_params}")
@@ -114,7 +113,6 @@ def process_orm_method(orm_method: str, db: Session):
             if not isinstance(params, dict):
                 raise ValueError("Parameters should be a dictionary.")
     
-            # Operatörlü parametreleri işle
             updated_params, operators = process_operator_params(params)
 
             customer = schemas.CustomerGet(**updated_params)
@@ -125,7 +123,7 @@ def process_orm_method(orm_method: str, db: Session):
             logging.error(error_message)
             raise HTTPException(status_code=400, detail=error_message)
 
-        # Başarıyla çalıştıysa logla
+        # Log the successful
         logging.info(f"Successfully executed: {orm_method}")
         return result
 
@@ -141,10 +139,10 @@ async def process_query(query: str, db: Session = Depends(get_db)):
     Doğal dil sorgusunu işler, ORM metodunu çalıştırır ve sonucu döndürür.
     """
     try:
-        # GPT'den ORM metodunu al
+        # Take the ORM method from the AI model
         orm_method = get_ai_response(query)
 
-        # ORM metodunu işle
+        # ORM method processing
         result = process_orm_method(orm_method, db)
         
         return {
