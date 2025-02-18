@@ -47,7 +47,7 @@ Veritabanı tablomuz `customers` olarak adlandırılmıştır ve şu alanlara sa
    **Yanıt:** `update_customer({'age': 15}, {'job': 'doctor'})`
 7. Büyüktür kelimesi görünce '>' sembolünü , Küçüktür kelimesi görünce '<' sembolünü , büyük eşittir kelimesi görünce '>=' sembolünü ve küçük eşittir kelimesi görünce '<=' sembolünü kullan.
 Verilen cümleyi analiz et ve ORM metodunu **sadece** şu formatta döndür:
-`create_customer({...})`, `get_customer_by_attributes({...})`, `update_customer(..., {...})`, `delete_customer(...)`
+`create_customer({...})`, `get_customer_by_attributes({...})`, `update_customer({...}, {...})`, `delete_customer({...})`
 """
 
 

@@ -61,3 +61,131 @@ DETAIL:  Key (id)=(1) already exists.
 2025-02-17 14:50:57,746 - ERROR - Query processing error: An error occurred at update process: 404: No customers found matching the conditions.
 2025-02-17 14:52:44,625 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-17 14:52:44,877 - INFO - Successfully executed: update_customer({'job': 'retired'}, {'age': 70})
+2025-02-17 17:37:34,697 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 17:37:34,927 - INFO - Successfully executed: get_customer_by_attributes({'age': 49})
+2025-02-17 17:38:27,692 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 17:38:27,736 - INFO - Successfully executed: update_customer({'age': 49}, {'job': 'doctor'})
+2025-02-17 17:39:35,348 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 17:39:35,358 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>30'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='>30', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing
+2025-02-17 17:39:35,360 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>30'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='>30', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing
+2025-02-18 09:05:59,978 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 09:06:00,032 - CRITICAL - Unexpected error: name 're' is not defined
+2025-02-18 09:07:50,938 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 09:07:50,941 - CRITICAL - Unexpected error: name 're' is not defined
+2025-02-18 09:11:12,741 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 09:11:12,793 - CRITICAL - Unexpected error: name 're' is not defined
+2025-02-18 09:16:17,819 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 09:16:18,097 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-18 09:16:46,873 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 09:16:46,881 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>30'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='>30', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing
+2025-02-18 09:16:46,882 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>30'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='>30', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing
+2025-02-18 09:22:24,508 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 09:22:24,545 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>15'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='>15', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing
+2025-02-18 09:22:24,546 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>15'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='>15', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing
+2025-02-18 09:27:01,067 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 09:27:01,104 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='>50', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing
+2025-02-18 09:27:01,105 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='>50', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing
+2025-02-18 09:44:05,850 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 09:44:05,890 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 09:44:05,891 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 09:48:37,606 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 09:48:37,643 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 09:48:37,644 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 09:51:29,621 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 09:51:29,662 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 09:51:29,663 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 09:57:11,847 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 09:57:11,883 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 09:57:11,884 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 10:03:20,765 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:03:20,802 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 10:03:20,803 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 10:20:39,768 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:20:39,806 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 10:20:39,807 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 10:44:09,231 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:44:09,269 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 10:44:09,270 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>50'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 50), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 10:53:51,670 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 10:53:51,708 - ERROR - Error processing ORM method 'get_customer_by_attributes({'age': '>60'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 60), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 10:53:51,709 - ERROR - Query processing error: Error processing ORM method 'get_customer_by_attributes({'age': '>60'})': 1 validation error for CustomerGet
+age
+  Input should be a valid integer [type=int_type, input_value=('>', 60), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_type
+2025-02-18 11:10:09,917 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 11:10:10,239 - INFO - Successfully executed: get_customer_by_attributes({'age': '>50'})
+2025-02-18 11:20:06,809 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 11:20:06,859 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40', 'job': 'retired'})
+2025-02-18 11:20:33,876 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 11:20:33,912 - INFO - Successfully executed: get_customer_by_attributes({'age': '>30', 'job': 'retired'})
+2025-02-18 11:21:00,059 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 11:21:00,100 - INFO - Successfully executed: get_customer_by_attributes({'age': '>30', 'job': 'management'})

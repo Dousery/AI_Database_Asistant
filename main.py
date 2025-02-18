@@ -22,6 +22,34 @@ import ast
 import logging
 from fastapi import HTTPException
 
+
+import re
+
+def process_operator_params(params: dict) -> dict:
+    """
+    Operatörlü parametreleri işleyip, operatörleri çıkarıp güncellenmiş parametreler döner.
+    Operatörler, sadece veritabanı sorgusunda kullanılmak üzere saklanır.
+    """
+    updated_params = {}
+    operators = {}  
+
+    for key, value in params.items():
+        print(f"Processing key: {key}, value: {value}")  
+        
+        if isinstance(value, str) and re.match(r'(>|<|>=|<=)\d+', value):
+            operator, number = re.match(r'(>|<|>=|<=)(\d+)', value).groups()
+            print(f"Found operator: {operator}, number: {number}")  
+            updated_params[key] = int(number)  
+            operators[key] = operator 
+        else:
+            updated_params[key] = value
+            print(f"No operator, directly added: {key}: {value}") 
+
+    print(f"Updated parameters: {updated_params}") 
+    print(f"Operators: {operators}")  
+    return updated_params, operators
+
+
 def process_orm_method(orm_method: str, db: Session):
     """
     GPT'den gelen ORM metodunu işler ve uygun CRUD işlemini gerçekleştirir.
@@ -54,15 +82,30 @@ def process_orm_method(orm_method: str, db: Session):
         elif method_name == "get_customer_by_attributes":
             if not isinstance(params, dict):
                 raise ValueError("Parameters should be a dictionary.")
-            customer = schemas.CustomerGet(**params)
-            result = crud.get_customer_by_attributes(db, customer)
+    
+            # Operatörlü parametreleri işle
+            updated_params, operators = process_operator_params(params)
+
+            customer = schemas.CustomerGet(**updated_params)
+            result = crud.get_customer_by_attributes(db, customer, operators)
 
         elif method_name == "update_customer":
             if len(params) != 2:
                 raise ValueError("Update requires two dictionaries: condition and update fields.")
             condition_dict = params[0]  # Condition dictionary
             update_dict = params[1]     # Update dictionary
-            result = crud.update_customer(db, condition_dict, update_dict)
+            
+            updated_condition = {}
+            for key, value in condition_dict.items():
+                if isinstance(value, str) and re.match(r'(>|<|>=|<=)\d+', value):
+                    operator, number = re.match(r'(>|<|>=|<=)(\d+)', value).groups()
+                    updated_condition[key] = (operator, int(number))  
+                else:
+                    updated_condition[key] = value
+
+            updated_update = {key: value for key, value in update_dict.items()}
+
+            result = crud.update_customer(db, updated_condition, updated_update)
 
         elif method_name == "delete_customer":
             
