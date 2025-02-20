@@ -10,6 +10,8 @@ import re
 import ast
 from database_connection import  engine
 import models
+import pandas as pd
+
 # Logging configuration
 logging.basicConfig(
     filename="app.log",
@@ -20,6 +22,47 @@ logging.basicConfig(
 app = FastAPI()
 
 models.Base.metadata.create_all(engine)
+
+def load_customers_from_csv(db: Session):
+    """bank_sample.csv dosyasındaki verileri veritabanına aktarır."""
+    df = pd.read_csv("bank_sample.csv")  # CSV dosyasını oku
+
+    # Eğer daha önce yüklenmişse tekrar eklememek için kontrol et
+    existing_customers = db.query(models.Customer).count()
+    if existing_customers > 0:
+        print("Müşteriler zaten veritabanına eklenmiş.")
+        return
+
+    for _, row in df.iterrows():
+        customer_data = schemas.CustomerCreate(
+            age=row["age"],
+            job=row["job"],
+            marital=row["marital"],
+            education=row["education"],
+            is_default=row["is_default"],
+            balance=row["balance"],
+            housing=row["housing"],
+            loan=row["loan"],
+            contact=row["contact"],
+            call_day=row["call_day"],
+            call_month=row["call_month"],
+            duration=row["duration"],
+            campaign=row["campaign"],
+            pdays=row["pdays"],
+            previous=row["previous"],
+            poutcome=row["poutcome"],
+            deposit=row["deposit"]
+        )
+        crud.create_customer(db, customer_data)  # CRUD fonksiyonunu kullanarak ekleyelim
+
+    print("CSV verileri başarıyla veritabanına eklendi.")
+
+@app.on_event("startup")
+def startup_event():
+    """FastAPI uygulaması başlarken çalışacak event."""
+    db = next(get_db())  # Veritabanı bağlantısını al
+    load_customers_from_csv(db)  # CSV'den verileri yükle
+    db.close()  # Bağlantıyı kapat
 
 
 def process_operator_params(params: dict) -> dict:
