@@ -1,6 +1,9 @@
 SQLAlchemy
 psycopg2
+openai
 python-dotenv
 pydantic
-fastapi
+regex
+typing
+fastapi[standard]
 uvicorn

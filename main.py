@@ -7,7 +7,9 @@ import schemas
 from database_connection import get_db
 from gpt_utils import get_ai_response
 import re
-
+import ast
+from database_connection import  engine
+import models
 # Logging configuration
 logging.basicConfig(
     filename="app.log",
@@ -17,13 +19,8 @@ logging.basicConfig(
 
 app = FastAPI()
 
-import re
-import ast
-import logging
-from fastapi import HTTPException
+models.Base.metadata.create_all(engine)
 
-
-import re
 
 def process_operator_params(params: dict) -> dict:
     """
