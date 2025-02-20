@@ -84,6 +84,7 @@ def delete_customer(db: Session, customer: schemas.CustomerDelete, operators: di
     else:
         print("No customers found for deletion.")
     
+    
     return customers_to_delete
 
 # Function to update customer information based on given conditions

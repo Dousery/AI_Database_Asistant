@@ -61,7 +61,7 @@ def load_customers_from_csv(db: Session):
 def startup_event():
     """FastAPI uygulaması başlarken çalışacak event."""
     db = next(get_db())  # Veritabanı bağlantısını al
-    load_customers_from_csv(db)  # CSV'den verileri yükle
+    load_customers_from_csv(get_db())  # CSV'den verileri yükle
     db.close()  # Bağlantıyı kapat
 
 
@@ -176,8 +176,42 @@ def process_orm_method(orm_method: str, db: Session):
 @app.post("/process-query/", responses={400: {"description": "Invalid ORM Method or Processing Error"}})
 async def process_query(query: str, db: Session = Depends(get_db)):
     """
-    Doğal dil sorgusunu işler, ORM metodunu çalıştırır ve sonucu döndürür.
+         Doğal dil sorgusunu işler, ORM metodunu çalıştırır ve sonucu döndürür.
+
+         **Input Query Format:**
+         - Kullanıcı, veritabanı üzerinde işlem yapabilmek için doğal dilde bir sorgu girmelidir. 
+         - Sorgular, bir veya birden fazla veritabanı işlemi (örneğin, müşteri ekleme, güncelleme, silme) içerebilir.
+         - Örnek sorgular:
+             1. "Ali adlı yeni müşteri ekle, 30 yaşında, işi mühendis."  
+             2. "ID'si 5 olan müşterinin işi değişti, yeni iş: öğretmen."  
+             3. "ID'si 10 olan müşteriyi sil."  
+             4. "İşi mühendis ve 30 yaşındaki müşteriyi getir."  
+             5. "Yaşı 30'dan küçük ve 'evli' olan tüm müşterilerin işini değiştir."  
+             6. "15 yaşındaki müşterinin işini doktor olarak güncelle."  
+
+         **Veritabanı Tabloları:**
+         - Veritabanında `customers` adlı bir tablo bulunmaktadır ve aşağıdaki alanlara sahiptir:
+             - id (Integer)
+             - age (Integer)
+             - job (String)
+             - marital (String)
+             - education (String)
+             - is_default (String)
+             - balance (Integer)
+             - housing (String)
+             - loan (String)
+             - contact (String)
+             - call_day (Integer)
+             - call_month (String)
+             - duration (Integer)
+             - campaign (Integer)
+             - pdays (Integer)
+             - previous (Integer)
+             - poutcome (String)
+             - deposit (String)
+    
     """
+
     try:
         # Take the ORM method from the AI model
         orm_method = get_ai_response(query)
