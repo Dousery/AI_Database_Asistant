@@ -63,27 +63,28 @@ def create_customer(db: Session, customer: schemas.CustomerCreate):
 def delete_customer(db: Session, customer: schemas.CustomerDelete, operators: dict = None):
     query = db.query(models.Customer)
     parameters = customer.model_dump(exclude_unset=True)
-
-    try:
-        customers_to_delete = query.all()
-    except Exception as e:
-        db.rollback()
-        print(f"Error fetching customers to delete: {e}")
+    operators = operators or {}
+    query = apply_filters(query, models.Customer, parameters, operators)
+    customers_to_delete = query.all()
+    
+    if not customers_to_delete:
+        print("No customers found matching the given conditions.")
         return []
     
-    if customers_to_delete:
-        try:
-            for customer in customers_to_delete:
-                db.delete(customer)
-            db.commit()
-            print(f"Deleted {len(customers_to_delete)} customers.")
-        except Exception as e:
-            db.rollback()
-            print(f"Error during deletion process: {e}")
-            return []
-    else:
-        print("No customers found for deletion.")
-    
+    try:
+        for customer in customers_to_delete:
+             db.delete(customer)
+        db.commit()
+        
+        deleted_customers = db.query(models.Customer).filter(models.Customer.id.in_([customer.id for customer in customers_to_delete])).all()
+
+        for customer in deleted_customers:
+            print(f"Deleted customer: {customer}")
+
+    except SQLAlchemyError as e:
+        db.rollback()
+        print(f"Error deleting customers: {e}") # Log the error
+        return None
     
     return customers_to_delete
 

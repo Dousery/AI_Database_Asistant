@@ -61,7 +61,7 @@ def load_customers_from_csv(db: Session):
 def startup_event():
     """FastAPI uygulaması başlarken çalışacak event."""
     db = next(get_db())  # Veritabanı bağlantısını al
-    load_customers_from_csv(get_db())  # CSV'den verileri yükle
+    load_customers_from_csv(db)  # CSV'den verileri yükle
     db.close()  # Bağlantıyı kapat
 
 
