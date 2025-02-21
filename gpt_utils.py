@@ -1,12 +1,22 @@
 import os
 import openai
 from dotenv import load_dotenv
+import google.generativeai as genai
 
 load_dotenv()
 
+genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+
+
+generation_config = {
+    "temperature": 0.5,
+    "response_mime_type": "text/plain",
+}
+
+
 # Initialize the OpenAI client
-openai.api_key = os.environ.get("OPENAI_API_KEY")
-client = openai.Client()
+#openai.api_key = os.environ.get("OPENAI_API_KEY")
+#client = openai.Client()
 
 # Define your system prompt
 system_prompt = """
@@ -51,18 +61,30 @@ Verilen cümleyi analiz et ve ORM metodunu **sadece** şu formatta döndür:
 """
 
 
+#def get_ai_response(query):
+#    response = client.chat.completions.create(
+#        model="gpt-4o-mini",
+#        messages=[
+#            {
+#                "role": "system",
+#                "content": system_prompt,
+ #           },
+ #           {
+ #               "role": "user",
+  #              "content": query,
+   #         },
+ #       ]
+  #  )
+ #   return response.choices[0].message.content
+
+
 def get_ai_response(query):
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {
-                "role": "system",
-                "content": system_prompt,
-            },
-            {
-                "role": "user",
-                "content": query,
-            },
-        ]
+    model = genai.GenerativeModel(
+        model_name="gemini-2.0-pro-exp-02-05",
+        generation_config=generation_config,
+        system_instruction=system_prompt  
     )
-    return response.choices[0].message.content
+
+    response = model.generate_content(query)
+    return response.text 
+

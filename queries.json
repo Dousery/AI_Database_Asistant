@@ -1,0 +1,9 @@
+[
+    { "query": "Ali adlı yeni müşteri ekle, 30 yaşında, işi mühendis." },
+    { "query": "ID'si 5 olan müşterinin işi değişti, yeni iş: öğretmen." },
+    { "query": "ID'si 10 olan müşteriyi sil." },
+    { "query": "İşi mühendis ve 30 yaşındaki müşteriyi getir." },
+    { "query": "Yaşı 30'dan küçük ve 'evli' olan tüm müşterilerin işini değiştir." },
+    { "query": "50 yaşından büyük müşterilerin işini doktor olarak güncelle."}
+  ]
+  
