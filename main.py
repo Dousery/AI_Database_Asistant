@@ -1,5 +1,5 @@
 import logging
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, Body
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 import crud
@@ -174,7 +174,7 @@ def process_orm_method(orm_method: str, db: Session):
 
 
 @app.post("/process-query/", responses={400: {"description": "Invalid ORM Method or Processing Error"}})
-async def process_query(query: str, db: Session = Depends(get_db)):
+async def process_query(query: str =  Body(...), db: Session = Depends(get_db)):
     """
          Doğal dil sorgusunu işler, ORM metodunu çalıştırır ve sonucu döndürür.
 

@@ -1,36 +1,340 @@
-2025-02-19 11:25:02,762 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-02-19 11:25:02,771 - CRITICAL - Unexpected error: name 'ast' is not defined
-2025-02-19 11:26:13,521 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-02-19 11:26:14,066 - INFO - Successfully executed: get_customer_by_attributes({'age': '>15'})
-2025-02-20 14:14:58,239 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-02-20 14:14:58,274 - INFO - Successfully executed: get_customer_by_attributes({'age': '>50'})
-2025-02-20 14:16:53,408 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-02-20 14:16:53,462 - INFO - Successfully executed: delete_customer({'age': 15})
-2025-02-20 14:24:32,562 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-02-20 14:24:32,691 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
-2025-02-20 14:53:13,952 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-02-20 14:53:13,969 - CRITICAL - Unexpected error: Class 'builtins.list' is not mapped
-2025-02-20 14:57:18,121 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-02-20 14:57:18,130 - CRITICAL - Unexpected error: Class 'builtins.list' is not mapped
-2025-02-20 15:19:09,554 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-02-20 15:19:10,491 - INFO - Successfully executed: delete_customer({'age': '>59'})
-2025-02-20 15:22:01,916 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-02-20 15:22:03,001 - INFO - Successfully executed: delete_customer({'age': '<24'})
-2025-02-20 17:08:24,458 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-02-20 17:08:24,485 - INFO - Successfully executed: get_customer_by_attributes({'age': '>55'})
-2025-02-21 10:06:21,967 - CRITICAL - Unexpected error: cannot access local variable 'model' where it is not associated with a value
-2025-02-21 10:07:55,112 - CRITICAL - Unexpected error: cannot access local variable 'model' where it is not associated with a value
-2025-02-21 10:09:53,536 - CRITICAL - Unexpected error: cannot access local variable 'model' where it is not associated with a value
-2025-02-21 10:09:56,059 - CRITICAL - Unexpected error: cannot access local variable 'model' where it is not associated with a value
-2025-02-21 10:10:02,941 - CRITICAL - Unexpected error: cannot access local variable 'model' where it is not associated with a value
-2025-02-21 10:13:33,401 - ERROR - Unknown ORM method: get_customer
-2025-02-21 10:13:33,402 - ERROR - Query processing error: Unknown ORM method: get_customer
-2025-02-21 10:16:18,745 - INFO - Successfully executed: get_customer_by_attributes({'age': '>50'})
-2025-02-21 10:16:47,008 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer'})
-2025-02-21 10:18:42,003 - INFO - Successfully executed: get_customer_by_attributes({'job': 'yöentim'})
-2025-02-21 10:18:51,017 - INFO - Successfully executed: get_customer_by_attributes({'job': 'management'})
-2025-02-21 10:19:13,086 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'age': '>50'})
-2025-02-21 10:19:52,976 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married', 'age': '>50'})
-2025-02-21 10:22:08,242 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married', 'age': '>50'})
-2025-02-21 10:22:26,844 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married', 'age': '>50'})
-2025-02-21 10:22:41,263 - INFO - Successfully executed: delete_customer({'marital': 'married', 'age': '>50', 'balance': 3923})
+2025-02-21 15:42:32,754 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:42:33,092 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:42:33,448 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:42:33,869 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:42:34,281 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:42:34,691 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+
+2025-02-21 15:42:34,692 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+
+2025-02-21 15:42:35,101 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:42:35,497 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:42:35,858 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:42:36,246 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:42:36,613 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:43:37,061 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'job': 'doctor'})
+
+2025-02-21 15:43:37,061 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'job': 'doctor'})
+
+2025-02-21 15:43:37,431 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:37,835 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:38,157 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:38,508 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:38,835 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:39,133 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:39,498 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:39,846 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:40,184 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:40,526 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:40,845 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:41,195 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:41,558 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:43:41,908 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:44:42,358 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:42,716 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+
+2025-02-21 15:44:42,716 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+
+2025-02-21 15:44:43,143 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:43,532 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:43,931 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:44,435 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:44,778 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+
+2025-02-21 15:44:44,778 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+
+2025-02-21 15:44:45,112 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:45,465 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:45,824 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:46,199 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:46,557 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:46,937 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:47,276 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:44:47,668 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:45:48,035 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:48,350 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:48,671 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:49,037 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:49,380 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:49,733 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:50,429 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:50,755 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:51,082 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:51,421 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:51,735 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:52,068 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:52,424 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:52,783 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:45:53,101 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'married'})
+2025-02-21 15:46:53,679 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'None'})
+2025-02-21 15:46:54,036 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:54,405 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:54,775 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:55,136 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:55,516 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:55,868 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:56,256 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:56,621 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': None})
+2025-02-21 15:46:56,978 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:57,354 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:57,749 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:58,134 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:58,520 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:46:58,888 - INFO - Successfully executed: get_customer_by_attributes({'marital': 'single', 'job': 'unemployed'})
+2025-02-21 15:47:59,403 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:47:59,404 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:47:59,795 - INFO - Successfully executed: get_customer_by_attributes({'balance': '>20000'})
+2025-02-21 15:48:00,192 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:00,192 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:00,575 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:00,575 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:00,953 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:00,953 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:01,334 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:01,334 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:01,692 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:01,692 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:02,104 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:02,104 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:02,458 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:02,458 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:02,843 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:02,843 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:03,250 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:03,250 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:03,638 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:03,638 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:04,017 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:04,017 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:04,387 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:04,387 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:04,770 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:48:04,770 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:51:24,077 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'age': '>40'})
+
+2025-02-21 15:51:24,078 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'age': '>40'})
+
+2025-02-21 15:51:24,423 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:51:24,766 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:51:25,112 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:51:25,462 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:51:30,885 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:51:31,293 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:51:31,682 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:51:32,066 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:51:32,492 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'age': '>18', 'age': '<25'})
+
+2025-02-21 15:51:32,492 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'age': '>18', 'age': '<25'})
+
+2025-02-21 15:51:37,932 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:51:38,314 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+
+2025-02-21 15:51:38,314 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+
+2025-02-21 15:51:38,681 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:51:39,056 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:51:39,431 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:51:44,841 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:51:45,149 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:51:45,461 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:51:45,786 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:51:57,452 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:52:02,893 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:52:08,101 - CRITICAL - Unexpected error: 429 Resource has been exhausted (e.g. check quota).
+2025-02-21 15:52:13,531 - CRITICAL - Unexpected error: 429 Resource has been exhausted (e.g. check quota).
+2025-02-21 15:52:18,736 - CRITICAL - Unexpected error: 429 Resource has been exhausted (e.g. check quota).
+2025-02-21 15:52:23,947 - CRITICAL - Unexpected error: 429 Resource has been exhausted (e.g. check quota).
+2025-02-21 15:52:29,162 - CRITICAL - Unexpected error: 429 Resource has been exhausted (e.g. check quota).
+2025-02-21 15:52:34,637 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:52:34,637 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'balance': '>20000'})
+
+2025-02-21 15:52:40,056 - INFO - Successfully executed: get_customer_by_attributes({'balance': '<0'})
+2025-02-21 15:52:45,486 - INFO - Successfully executed: update_customer({'id': 5}, {'job': 'avukat'})
+2025-02-21 15:52:50,948 - INFO - Successfully executed: get_customer_by_attributes({'job': 'lawyer', 'age': '<35'})
+2025-02-21 15:52:56,354 - INFO - Successfully executed: update_customer({'id': 25}, {'duration': 150})
+2025-02-21 15:53:01,781 - INFO - Successfully executed: get_customer_by_attributes({'duration': '>2'})
+2025-02-21 15:53:07,224 - INFO - Successfully executed: get_customer_by_attributes({'education': 'high.school'})
+2025-02-21 15:53:12,665 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'previous': 0})
+
+2025-02-21 15:53:12,665 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'previous': 0})
+
+2025-02-21 15:53:18,081 - INFO - Successfully executed: update_customer({'id': 10}, {'loan': 'updated loan'})
+2025-02-21 15:53:23,763 - ERROR - Invalid ORM method format: Bu sorgu i in veritaban\u0131nda ayl\u0131k gelir bilgisini tutan bir alan olmad\u0131\u011f\u0131 i in,  ORM metodu olu\u015fturulam\u0131yor.  Veritaban\u0131 \u015femas\u0131nda ayl\u0131k gelir bilgisini temsil eden bir alan eklenmesi gerekmektedir.
+2025-02-21 15:53:23,764 - ERROR - Query processing error: Invalid ORM method format: Bu sorgu i in veritaban\u0131nda ayl\u0131k gelir bilgisini tutan bir alan olmad\u0131\u011f\u0131 i in,  ORM metodu olu\u015fturulam\u0131yor.  Veritaban\u0131 \u015femas\u0131nda ayl\u0131k gelir bilgisini temsil eden bir alan eklenmesi gerekmektedir.
+2025-02-21 15:53:29,166 - INFO - Successfully executed: get_customer_by_attributes({'deposit': 'yes'})
+2025-02-21 15:53:47,266 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:53:47,617 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:53:47,936 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:53:48,250 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:53:48,625 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:53:48,949 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:53:49,292 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:53:49,619 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:53:49,974 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:53:50,320 - INFO - Successfully executed: get_customer_by_attributes({'age': '>40'})
+2025-02-21 15:54:50,774 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:54:51,146 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:54:51,559 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:54:51,964 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:54:52,343 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:54:52,741 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:54:53,199 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:54:53,656 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:54:54,064 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:54:54,491 - INFO - Successfully executed: get_customer_by_attributes({'age': '>18', 'age': '<25'})
+2025-02-21 15:55:54,942 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:55:55,378 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:55:55,737 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:55:56,144 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:55:56,543 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:55:56,984 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+
+2025-02-21 15:55:56,984 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+
+2025-02-21 15:55:57,359 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:55:57,775 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:55:58,173 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:55:58,619 - INFO - Successfully executed: get_customer_by_attributes({'age': '>60', 'loan': 'no'})
+2025-02-21 15:56:59,145 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:56:59,506 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:56:59,859 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:57:00,208 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:57:00,538 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:57:00,841 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:57:01,169 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:57:01,498 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:57:01,816 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:57:02,160 - INFO - Successfully executed: get_customer_by_attributes({'job': 'doctor'})
+2025-02-21 15:58:02,852 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:58:03,240 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:58:03,690 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+
+2025-02-21 15:58:03,690 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+
+2025-02-21 15:58:04,079 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:58:04,483 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:58:04,942 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:58:05,384 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:58:06,273 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:58:06,693 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+2025-02-21 15:58:07,105 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+
+2025-02-21 15:58:07,106 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'job': 'engineer', 'loan': 'yes'})
+
+2025-02-21 16:00:45,647 - INFO - Successfully executed: get_customer_by_attributes({'job': 'management', 'marital': 'married', 'housing': 'yes'})
+2025-02-21 16:02:06,443 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'job': 'management', 'marital': 'single', 'age': '>30', 'housing': 'yes'})
+
+2025-02-21 16:02:06,444 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'job': 'management', 'marital': 'single', 'age': '>30', 'housing': 'yes'})
+
+2025-02-21 16:02:33,550 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'job': 'management', 'marital': 'married', 'age': '>30', 'housing': 'yes'})
+
+2025-02-21 16:02:33,551 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'job': 'management', 'marital': 'married', 'age': '>30', 'housing': 'yes'})
+
+2025-02-21 16:05:11,087 - INFO - Successfully executed: get_customer_by_attributes({'job': 'management', 'marital': 'married', 'age': '>30', 'housing': 'yes'})
+2025-02-21 16:06:53,148 - ERROR - Invalid ORM method format: python
+get_customer_by_attributes({'age': '>30', 'job': 'management'})
+
+2025-02-21 16:06:53,148 - ERROR - Query processing error: Invalid ORM method format: python
+get_customer_by_attributes({'age': '>30', 'job': 'management'})
+
+2025-02-21 16:06:57,562 - INFO - Successfully executed: get_customer_by_attributes({'age': '>30', 'job': 'management'})
+2025-02-21 16:08:34,023 - INFO - Successfully executed: get_customer_by_attributes({'age': '<30', 'job': 'management'})
+2025-02-21 16:09:02,471 - INFO - Successfully executed: create_customer({'age': 4, 'job': 'engineer'})
+2025-02-21 16:09:27,473 - ERROR - Invalid ORM method format: python
+delete_customer({'age': 4})
+
+2025-02-21 16:09:27,473 - ERROR - Query processing error: Invalid ORM method format: python
+delete_customer({'age': 4})
+
+2025-02-21 16:09:37,076 - INFO - Successfully executed: delete_customer({'age': 4})
+2025-02-21 16:14:21,402 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-21 16:14:21,428 - INFO - Successfully executed: create_customer({'age': 4, 'job': 'engineer'})
+2025-02-21 16:15:04,621 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-21 16:15:04,676 - INFO - Successfully executed: delete_customer({'age': 30, 'job': 'engineer'})
+2025-02-21 16:16:14,489 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-21 16:16:14,506 - INFO - Successfully executed: get_customer_by_attributes({'job': 'engineer'})

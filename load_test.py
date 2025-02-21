@@ -1,17 +1,16 @@
 import json
 import subprocess
+import time 
 
-API_URL = "http://127.0.0.1:8001/process_query"
-TOTAL_REQUESTS = 50
-CONCURRENT_REQUESTS = 5
+API_URL = "http://127.0.0.1:8001/process-query/"
+TOTAL_REQUESTS = 10
+CONCURRENT_REQUESTS = 1
 
-# JSON dosyasını oku
 with open("queries.json", "r", encoding="utf-8") as file:
     queries = json.load(file)
 
-# Her sorguyu Hey ile POST isteği olarak gönder
 for query in queries:
-    json_payload = json.dumps(query, ensure_ascii=False)  # Türkçe karakterleri koru
+    json_payload = json.dumps(query, ensure_ascii=False) 
     command = [
         "hey",
         "-n", str(TOTAL_REQUESTS),
@@ -21,5 +20,8 @@ for query in queries:
         "-d", json_payload,
         API_URL
     ]
+    
     print(f"Executing: {' '.join(command)}")
     subprocess.run(command)
+    
+    time.sleep(60)
