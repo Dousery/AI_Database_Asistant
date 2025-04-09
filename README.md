@@ -29,17 +29,16 @@ The application will work at http://127.0.0.1:8000.
 
 ### 3. 🌐 Access to API Interface
 
-To test the API via the Swagger interface, go to the link below:
+To test the API via the Swagger interface, go to the link:
 🔗 http://127.0.0.1:8000/docs
 
 
 ---
 
-## 📺 Demo Videosu
+## 📺 Demo Video
 
-🖥️ [YouTube'da İzle](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+🖥️ [Watch on Youtube](www.youtube.com/watch?v=d9XeBNOraec&feature=youtu.be)
 
----
 
 
 
