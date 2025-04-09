@@ -6,7 +6,7 @@ This project is a FastAPI application that performs database operations in the b
 ---
 ## 🚀 Setup and Run
 
-
+---
 ### 1. 🧱 Build Necessary Libraries
 
 Python version 3.9+ is recommended. First create a virtual environment and install the libraries:
