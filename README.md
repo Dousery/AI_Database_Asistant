@@ -39,7 +39,7 @@ To test the API via the Swagger interface, go to the link:
 
 ## 📺 Demo Video
 
-🖥️ [Watch on Youtube]()
+🖥️ [Will be added soon]()
 
 
 
