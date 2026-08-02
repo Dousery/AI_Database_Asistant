@@ -1,0 +1,135 @@
+Sprint 1 – Analiz ve PoC
+Kart 1 – Gereksinim Analizi
+Tasklar
+Toplanacak envanter bilgilerinin belirlenmesi
+Fiziksel ve sanal node gereksinimlerinin belirlenmesi
+Kullanılacak araçların belirlenmesi
+JSON veri modelinin hazırlanması
+Genel mimarinin oluşturulması
+Kart 2 – Fiziksel Node PoC
+Tasklar
+ipmitool image'ının hazırlanması
+Tek node üzerinde PoC çalıştırılması
+Vendor bilgisinin alınması
+Model bilgisinin alınması
+BMC/iLO IP bilgilerinin alınması
+JSON çıktısının oluşturulması
+ipmitool ile seri numarası bilgilerinin analiz edilmesi
+Çıktı
+Fiziksel node envanteri başarıyla toplanmıştır.
+Vendor, model ve BMC/iLO IP bilgileri elde edilmiştir.
+Gerçek fiziksel seri numarası ipmitool ile alınamamaktadır.
+Gerçek seri numarasının Redfish/Cisco API üzerinden alınmasına karar verilmiştir.
+Sprint 2 – Inventory Image Geliştirme
+Kart 3 – Inventory Image'ın Güncellenmesi
+Tasklar
+Mevcut ipmitool image'ının güncellenmesi
+dmidecode paketinin eklenmesi
+util-linux (nsenter) paketinin eklenmesi
+jq paketinin eklenmesi
+Gerekli yardımcı Linux araçlarının eklenmesi
+Image testlerinin yapılması
+Kart 4 – Host Komutlarının Doğrulanması
+Tasklar
+dmidecode komutunun doğrulanması
+hostnamectl komutunun doğrulanması
+lscpu komutunun doğrulanması
+lsblk komutunun doğrulanması
+ip komutunun doğrulanması
+Sprint 3 – Merkeziyet Dağıtımı
+Kart 5 – Kubernetes Manifestlerinin Hazırlanması
+Tasklar
+Namespace oluşturulması
+ServiceAccount oluşturulması
+Role oluşturulması
+RoleBinding oluşturulması
+ConfigMap hazırlanması
+DaemonSet manifestinin hazırlanması
+Kart 6 – Merkeziyet Üzerinden Dağıtım
+Tasklar
+Manifestlerin Merkeziyet reposuna eklenmesi
+Test cluster'ına dağıtılması
+DaemonSet'in doğrulanması
+SCC doğrulaması
+RBAC doğrulaması
+Sprint 4 – ACM Discovery ve Ansible Altyapısı
+Kart 7 – Managed Cluster Discovery
+Tasklar
+ACM üzerinden Managed Cluster listesinin alınması
+Hedef clusterların belirlenmesi
+Cluster erişimlerinin doğrulanması
+Kart 8 – Ansible Playbook Altyapısı
+Tasklar
+Ansible playbook yapısının oluşturulması
+Kubernetes Collection yapılandırılması
+k8s_exec kullanımının hazırlanması
+Pod erişim testlerinin yapılması
+Sprint 5 – Node Envanter Toplama
+Kart 9 – Fiziksel / Sanal Node Ayrımı
+Tasklar
+Pod içerisinde dmidecode komutunun çalıştırılması
+system-manufacturer bilgisinin alınması
+system-product-name bilgisinin alınması
+Fiziksel / sanal node ayrım mantığının oluşturulması
+Kart 10 – Fiziksel Node Envanteri
+Tasklar
+ipmitool mc info çalıştırılması
+ipmitool fru çalıştırılması
+ipmitool lan print çalıştırılması
+dmidecode bilgilerinin alınması
+JSON verisinin hazırlanması
+Kart 11 – Sanal Node Envanteri
+Tasklar
+hostnamectl bilgilerinin alınması
+lscpu bilgilerinin alınması
+lsblk bilgilerinin alınması
+ip addr bilgilerinin alınması
+dmidecode bilgilerinin alınması
+JSON verisinin hazırlanması
+Kart 12 – Merkezi inventory.json Oluşturulması
+Tasklar
+Cluster bazlı JSON verilerinin birleştirilmesi
+inventory.json oluşturulması
+JSON doğrulaması
+Eksik alanların kontrol edilmesi
+Sprint 6 – ESMPG Entegrasyonu
+Kart 13 – Inventory Servisinin Geliştirilmesi
+Tasklar
+ESMPG Inventory servisinin geliştirilmesi
+inventory.json dosyasının okunması
+Vendor bazlı API seçim mekanizmasının geliştirilmesi
+Kart 14 – Vendor API Entegrasyonu
+Tasklar
+Cisco Intersight API entegrasyonu
+Redfish API entegrasyonu
+BMC/iLO IP üzerinden gerçek seri numarasının alınması
+Asset bilgilerinin alınması
+inventory.json dosyasının güncellenmesi
+Sprint 7 – Test ve Dokümantasyon
+Kart 15 – Uçtan Uca Test
+Tasklar
+Merkeziyet dağıtımının doğrulanması
+ACM üzerinden cluster keşfinin doğrulanması
+DaemonSet doğrulaması
+Ansible playbook doğrulaması
+inventory.json doğrulaması
+ESMPG servis doğrulaması
+Vendor API doğrulamaları
+Kart 16 – Dokümantasyon
+Tasklar
+Mimari dokümanı
+Inventory image dokümanı
+DaemonSet kullanım dokümanı
+Merkeziyet kullanım rehberi
+Ansible playbook dokümanı
+inventory.json şeması
+ESMPG servis dokümanı
+Operasyon dokümanı
+Backlog
+CronJob ile periyodik envanter toplama
+GitLab CI/CD entegrasyonu
+Prometheus metrikleri
+Grafana dashboard'u
+Envanter değişikliklerinin (drift) tespiti
+PostgreSQL veya ClickHouse entegrasyonu
+Bildirim (Slack / Teams / E-posta)
